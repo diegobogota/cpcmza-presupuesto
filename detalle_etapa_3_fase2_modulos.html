@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etapa 3 · Fase 2 Módulos — Cotización para CPCEMZA · AleluIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1C1A20; --charcoal-2:#2A2730;
+    --cream:#F7F2EC; --cream-2:#FFFDFA;
+    --coral:#E8735A; --coral-soft:#FBE9E4;
+    --periwinkle:#8E9FE8; --periwinkle-soft:#EAEDFB;
+    --violeta:#6C5B9E; --granate:#5C3A4A;
+    --ink:#1C1A20; --muted:#6B6570; --line:#E8E0D6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Nunito Sans','Avenir Next',-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:'Nunito','Arial Rounded MT Bold','Avenir Next',sans-serif}
+
+  .topbar{background:var(--charcoal);color:var(--cream);padding:14px 0;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(28,26,32,.3)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px}
+  .brand .wordmark{display:flex;align-items:baseline;letter-spacing:-.01em}
+  .brand .mark{width:34px;height:34px;border-radius:10px;background:var(--coral);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#fff}
+  .brand em{font-style:normal;color:var(--coral)}
+  .topbar .tag{font-size:12px;opacity:.7;letter-spacing:.08em;text-transform:uppercase}
+
+  .hero{background:radial-gradient(1100px 420px at 88% -12%, rgba(232,115,90,.28), transparent 60%),radial-gradient(900px 380px at -8% 112%, rgba(142,159,232,.22), transparent 55%),linear-gradient(rgba(28,26,32,.82), rgba(28,26,32,.82)),url('aleluia-textura-ondas.jpg') center/cover no-repeat,linear-gradient(165deg,var(--charcoal) 0%,var(--charcoal-2) 60%,var(--granate) 130%);color:var(--cream);padding:64px 0 56px}
+  .hero .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F5B7A6;background:rgba(232,115,90,.14);border:1px solid rgba(232,115,90,.45);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+  .hero h1{font-size:clamp(28px,4.6vw,42px);line-height:1.15;font-weight:900;margin-bottom:14px}
+  .hero h1 em{font-style:normal;color:var(--coral)}
+  .hero p.lead{font-size:16px;color:#D8CFC6;max-width:680px}
+  .hero .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;max-width:820px;margin-top:30px}
+  .hero .meta div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 16px}
+  .hero .meta span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#A79DA8;margin-bottom:3px}
+  .hero .meta strong{font-size:14px;font-weight:700;color:var(--cream)}
+
+  section{padding:52px 0}
+  section.alt{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:28px}
+  .sec-head .num{font-size:13px;font-weight:800;color:var(--coral);letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+  .sec-head h2{font-size:clamp(22px,3.2vw,30px);font-weight:900;color:var(--charcoal)}
+  .sec-head p{color:var(--muted);max-width:720px;margin-top:8px}
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-bottom:2px solid var(--coral)}
+  td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .table-card{background:var(--cream-2);border:1px solid var(--line);border-radius:16px;padding:8px 16px;box-shadow:0 1px 3px rgba(28,26,32,.06);overflow-x:auto}
+
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card{background:var(--cream-2);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 1px 3px rgba(28,26,32,.06)}
+  .card h3{font-size:16px;font-weight:800;color:var(--charcoal);margin-bottom:8px}
+  .card p{font-size:14px;color:var(--muted)}
+  .card ul{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
+  .card ul li{margin-bottom:6px}
+
+  .callout{background:var(--coral-soft);border-left:4px solid var(--coral);border-radius:0 12px 12px 0;padding:18px 22px;font-size:14px;color:var(--granate);margin-top:20px}
+  .callout strong{color:var(--charcoal)}
+  .callout.p{background:var(--periwinkle-soft);border-left-color:var(--periwinkle)}
+
+  /* Animaciones de entrada (control por scroll) */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0s);will-change:opacity,transform}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* Ondas (solo hero) */
+  .ondas{position:relative;overflow:hidden}
+  .ondas > canvas.ondas-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5}
+  .ondas > .wrap{position:relative;z-index:1}
+
+  .back{display:inline-block;margin-bottom:18px;font-size:13px;font-weight:700;color:var(--coral);text-decoration:none}
+  .back:hover{text-decoration:underline}
+
+
+  /* ===== Botones CTA ===== */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:15px;font-weight:800;letter-spacing:.01em;
+    padding:15px 28px;border-radius:999px;
+    text-decoration:none;cursor:pointer;
+    transition:transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, background .25s ease;
+    will-change:transform;
+  }
+  .btn svg{width:20px;height:20px;flex:none;transition:transform .25s ease}
+  .btn:hover svg{transform:scale(1.15) rotate(-6deg)}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{
+    background:var(--coral);color:#fff;
+    box-shadow:0 6px 18px rgba(232,115,90,.35);
+  }
+  .btn-primary:hover{
+    background:#E4634A;transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(232,115,90,.5);
+  }
+  .btn-secondary{
+    background:transparent;color:var(--cream);
+    border:2px solid rgba(247,242,236,.4);
+  }
+  .btn-secondary:hover{
+    border-color:var(--cream);background:rgba(247,242,236,.08);
+    transform:translateY(-3px);
+  }
+
+  /* ===== CTA final ===== */
+  .cta-final{
+    background:
+      linear-gradient(rgba(28,26,32,.85), rgba(28,26,32,.85)),
+      url('aleluia-textura-ondas.jpg') center/cover;
+    padding:64px 0 56px;text-align:center;color:var(--cream);
+  }
+  .cta-final h2{font-size:clamp(26px,4vw,36px);margin:0 0 10px}
+  .cta-final .sub{color:#C9BEB4;font-size:15px;margin:0 0 28px}
+  .cta-final .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .cta-final .nota{margin-top:22px;font-size:13px;color:#9C929E}
+
+  footer{background:linear-gradient(rgba(28,26,32,.86), rgba(28,26,32,.86)),url('aleluia-textura-ondas.jpg') center/cover no-repeat,var(--charcoal);color:#C9BEB4;padding:40px 0 36px;text-align:center}
+  footer h2{color:var(--cream);font-size:20px;margin-bottom:8px}
+  footer p{font-size:13px}
+  footer .contact{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;font-size:13px;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15)}
+  footer .contact span{opacity:.85}
+
+  @media print{.topbar{position:static}section{padding:32px 0}.hero{padding:48px 0}body{background:#fff}}
+  @media (max-width:640px){.hero{padding:52px 0 44px}section{padding:40px 0}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><div class="mark">A</div><span class="wordmark">Alelu<em>IA</em></span></div>
+    <div class="tag">Anexo · Etapa 3 · App Móvil CPCEMZA</div>
+  </div>
+</div>
+
+<header class="hero ondas" data-ondas="dot">
+  <canvas class="ondas-canvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <a class="back" href="index.html" style="color:#F5B7A6;display:inline-block;margin-bottom:14px;font-size:13px;font-weight:700;text-decoration:none">← Volver a la cotización</a>
+    <div class="kicker">Anexo técnico · Etapa 3 de 4</div>
+    <h1>Etapa 3 — <em>Fase 2: Módulos funcionales</em></h1>
+    <p class="lead">Sobre el núcleo seguro de la Etapa 2, construimos los módulos que el matriculado usa todos los días: beneficios, trámites, capacitaciones con pago y billetera.</p>
+    <div class="meta">
+      <div><span>Duración</span><strong>Mes 3 (4 semanas)</strong></div>
+      <div><span>Entregable clave</span><strong>App funcional completa</strong></div>
+      <div><span>Depende de</span><strong>Etapa 2 aprobada</strong></div>
+      <div><span>Habilita</span><strong>Etapa 4 (QA y publicación)</strong></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="num">Objetivo</div>
+      <h2>¿Qué logra esta etapa?</h2>
+      <p>Completar la experiencia del matriculado: los cinco módulos funcionales restantes, conectados a los sistemas reales del Consejo. Al cierre, la app tiene el 100% de sus funcionalidades operando con datos de staging.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card reveal" style="--d:0.00s">
+        <h3>Actividades</h3>
+        <ul>
+          <li><strong>Club de Beneficios:</strong> catálogo por categorías, detalle de convenios y contacto para redención.</li>
+          <li><strong>Trámites:</strong> consulta de estado de trámites en curso (incluidas legalizaciones gestionadas en el backoffice existente), historial con estados y buscador de trámites y guías. <strong>Inicio de trámites de matrícula:</strong> pago de matriculación y DAM (Derecho Anual de Matrícula).</li>
+          <li><strong>Capacitaciones:</strong> grilla de cursos y eventos, inscripción y <strong>pago integrado</strong> con pasarela.</li>
+          <li><strong>Billetera / Pagos:</strong> consola unificada de cuotas, aranceles y comprobantes, con descarga y envío por email.</li>
+          <li><strong>Otros Servicios:</strong> eventos institucionales, alquiler de salas y agenda del Consejo.</li>
+          <li><strong>Integración con sistemas del Consejo:</strong> conexión con el backoffice de matriculados existente (Seisto) para estado de trámites y con los sistemas del Consejo según los accesos provistos en el kickoff.</li>
+          <li><strong>Compartir PDF:</strong> comprobantes y certificados compartibles desde la app.</li>
+        </ul>
+      </div>
+      <div class="card reveal" style="--d:0.08s">
+        <h3>Entregables</h3>
+        <ul>
+          <li>Los 7 módulos funcionales operativos con datos de staging.</li>
+          <li>Pasarela de pago integrada funcionando en modo prueba.</li>
+          <li>Integración con los sistemas del Consejo (según accesos provistos).</li>
+          <li>App completa instalable en dispositivos físicos.</li>
+          <li>Documentación funcional de los módulos.</li>
+        </ul>
+        <div class="callout" style="margin-top:16px">
+          <strong>Criterio de aceptación:</strong> recorrida completa de los 7 módulos con el referente del Consejo, incluyendo una inscripción a capacitación con pago de prueba y la descarga del comprobante.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="num">Dependencias</div>
+      <h2>Qué necesita el Consejo proveer</h2>
+    </div>
+    <div class="table-card reveal">
+      <table>
+        <tr><th>Requisito</th><th>Para qué</th><th>Cuándo</th></tr>
+        <tr><td>Accesos y documentación de los sistemas del Consejo</td><td>Integración de trámites, cuotas y padrón</td><td>Antes de iniciar la Etapa 3</td></tr>
+        <tr><td>Cuenta de pasarela de pago (a nombre del CPCEMZA)</td><td>Pago integrado en capacitaciones y billetera</td><td>Semana 1-2 de la etapa</td></tr>
+        <tr><td>Contenido de beneficios y convenios vigentes</td><td>Poblado del catálogo</td><td>Semana 2-3 de la etapa</td></tr>
+      </table>
+    </div>
+    <div class="callout p">
+      <strong>Nota:</strong> las cuentas de pasarela de pago y proveedor de identidad son contratos directos del CPCEMZA con los proveedores. AleluIA asiste la apertura y realiza la integración técnica completa.
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="aprobacion">
+  <div class="wrap">
+    <h2>¿Avanzamos?</h2>
+    <p class="sub">Aprobá el presupuesto o consultanos lo que necesites — respondemos el mismo día.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://wa.me/5492236565296?text=Hola%20Diego!%20Quiero%20aprobar%20el%20anexo%20de%20la%20Etapa%203%20del%20presupuesto%20de%20la%20app%20m%C3%B3vil%20del%20CPCEMZA." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Aprobar presupuesto
+      </a>
+      <a class="btn btn-secondary" href="https://wa.me/5492236565296?text=Hola%20Diego!%20Tengo%20una%20consulta%20sobre%20el%20anexo%20de%20la%20Etapa%203." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+        Hacer una consulta
+      </a>
+    </div>
+    <p class="nota">WhatsApp Web · +54 9 223 656-5296 · Diego Linares, AleluIA</p>
+  </div>
+</section>
+
+<footer>
+
+  <div class="wrap">
+    <h2>Etapa 3 · Fase 2 Módulos</h2>
+    <p>Anexo del presupuesto — App Móvil CPCEMZA · AleluIA</p>
+    <div class="contact">
+      <span><strong>A cargo de:</strong> Diego Linares · AleluIA</span>
+      <span><strong>Email:</strong> hello@aleluiatech.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('in')); return; }
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+    }
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(el => observer.observe(el));
+})();
+</script>
+<script src="aleluia-ondas.js"></script>
+</body>
+</html>
