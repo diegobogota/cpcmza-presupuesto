@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <title>Presupuesto — App Móvil CPCE Mendoza · AleluIA</title>
+  <!-- Open Graph / Social (copy: Fer) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AleluIA Tech">
+  <meta property="og:url" content="https://cpcemza.aleluia.tech/">
+  <meta property="og:title" content="Presupuesto — App móvil CPCEMZA | AleluIA Tech">
+  <meta property="og:description" content="Propuesta de diseño y desarrollo de la aplicación móvil para el Consejo Profesional de Ciencias Económicas de Mendoza. Documento confidencial: requiere clave de acceso provista por AleluIA Tech.">
+  <meta property="og:image" content="https://cpcemza.aleluia.tech/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Portada del presupuesto de la app móvil de CPCEMZA: título sobre textura de marca AleluIA en tonos oscuros con acentos coral.">
+  <meta property="og:locale" content="es_AR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Presupuesto — App móvil CPCEMZA | AleluIA Tech">
+  <meta name="twitter:description" content="Propuesta de diseño y desarrollo de la aplicación móvil para el Consejo Profesional de Ciencias Económicas de Mendoza. Documento confidencial: requiere clave de acceso.">
+  <meta name="twitter:image" content="https://cpcemza.aleluia.tech/og-image.jpg">
+  <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -756,14 +772,14 @@
       <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
     </div>
     <h2 id="gateTitle">Documento confidencial</h2>
-    <p id="gateDesc">Este presupuesto contiene información comercial y arancelaria de AleluIA Tech destinada exclusivamente al Consejo Profesional de CPCE Mendoza. Para acceder, ingresá la clave provista por nuestro equipo.</p>
+    <p id="gateDesc">Este presupuesto contiene información comercial y arancelaria de AleluIA Tech destinada exclusivamente al Consejo Profesional de Ciencias Económicas de Mendoza (CPCEMZA). Para acceder, ingresá la clave provista por nuestro equipo.</p>
     <form id="gateForm" novalidate>
       <label for="gatePass">Clave de acceso</label>
       <input type="password" id="gatePass" name="gatePass" autocomplete="off" inputmode="text" required>
       <p class="gate-error" id="gateError" role="alert">La clave ingresada no es correcta. Verificá con el equipo de AleluIA Tech.</p>
       <button type="submit" id="gateSubmit">Ingresar</button>
     </form>
-    <p class="gate-note">Si no tenés la clave, escribinos a <a href="mailto:hola@aleluia.tech">hola@aleluia.tech</a></p>
+    <p class="gate-note">Si no tenés la clave, escribinos a <a href="mailto:hello@aleluia.tech">hello@aleluia.tech</a></p>
   </div>
 </div>
 <script>
@@ -808,5 +824,6 @@
   input.addEventListener('input', function(){ error.classList.remove('show'); });
 })();
 </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
