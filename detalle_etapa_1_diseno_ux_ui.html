@@ -128,6 +128,47 @@
 
   @media print{.topbar{position:static}section{padding:32px 0}.hero{padding:48px 0}body{background:#fff}}
   @media (max-width:640px){.hero{padding:52px 0 44px}section{padding:40px 0}}
+
+  /* ===== Gate de acceso (confidencial) ===== */
+  body.gated{overflow:hidden}
+  .gate-overlay{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(28,26,32,.72);backdrop-filter:blur(6px);
+    display:flex;align-items:center;justify-content:center;padding:24px;
+  }
+  .gate-overlay[hidden]{display:none}
+  .gate-modal{
+    background:#FFFDFA;border-radius:20px;max-width:440px;width:100%;
+    padding:36px 32px;box-shadow:0 24px 64px rgba(28,26,32,.45);
+    border-top:6px solid #E8735A;
+  }
+  .gate-modal .gate-icon{
+    width:52px;height:52px;border-radius:14px;background:#FBE9E4;
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .gate-modal .gate-icon svg{width:26px;height:26px;stroke:#E8735A;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .gate-modal h2{font-size:22px;margin-bottom:10px;color:#1C1A20}
+  .gate-modal p{font-size:14px;color:#6B6570;margin-bottom:20px}
+  .gate-modal label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#1C1A20;margin-bottom:8px}
+  .gate-modal input{
+    width:100%;padding:12px 14px;border:1.5px solid #E8E0D6;border-radius:10px;
+    font-size:15px;font-family:inherit;background:#fff;color:#1C1A20;
+    transition:border-color .15s;
+  }
+  .gate-modal input:focus{outline:none;border-color:#E8735A;box-shadow:0 0 0 3px #FBE9E4}
+  .gate-modal .gate-error{
+    display:none;font-size:13px;font-weight:600;color:#B3261E;
+    background:#FCEBEA;border:1px solid #F5C6C2;border-radius:8px;
+    padding:9px 12px;margin-top:12px;
+  }
+  .gate-modal .gate-error.show{display:block}
+  .gate-modal button{
+    width:100%;margin-top:18px;padding:13px;border:none;border-radius:10px;
+    background:#E8735A;color:#fff;font-family:inherit;font-size:15px;font-weight:800;
+    cursor:pointer;transition:background .15s;
+  }
+  .gate-modal button:hover{background:#D9634A}
+  .gate-modal .gate-note{font-size:12px;color:#6B6570;margin-top:16px;margin-bottom:0;text-align:center}
 </style>
 </head>
 <body>
@@ -282,5 +323,64 @@
 })();
 </script>
 <script src="aleluia-ondas.js"></script>
+
+<!-- ===== Gate de acceso (documento confidencial) ===== -->
+<div class="gate-overlay" id="gateOverlay" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
+  <div class="gate-modal">
+    <div class="gate-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+    </div>
+    <h2 id="gateTitle">Documento confidencial</h2>
+    <p id="gateDesc">Este presupuesto contiene información comercial y arancelaria de AleluIA Tech destinada exclusivamente al Consejo Profesional de CPCE Mendoza. Para acceder, ingresá la clave provista por nuestro equipo.</p>
+    <form id="gateForm" novalidate>
+      <label for="gatePass">Clave de acceso</label>
+      <input type="password" id="gatePass" name="gatePass" autocomplete="off" inputmode="text" required>
+      <p class="gate-error" id="gateError" role="alert">La clave ingresada no es correcta. Verificá con el equipo de AleluIA Tech.</p>
+      <button type="submit" id="gateSubmit">Ingresar</button>
+    </form>
+    <p class="gate-note">Si no tenés la clave, escribinos a <a href="mailto:hola@aleluia.tech">hola@aleluia.tech</a></p>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay = document.getElementById('gateOverlay');
+  var form = document.getElementById('gateForm');
+  var input = document.getElementById('gatePass');
+  var error = document.getElementById('gateError');
+  var KEY = 'Gerencia2026';
+  var STORAGE_KEY = 'cpcmza_gate_ok';
+
+  function unlock(){
+    try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch(e){}
+    overlay.hidden = true;
+    document.body.classList.remove('gated');
+    input.blur();
+  }
+  function isUnlocked(){
+    try { return sessionStorage.getItem(STORAGE_KEY) === '1'; } catch(e){ return false; }
+  }
+
+  if (!isUnlocked()) {
+    document.body.classList.add('gated');
+    overlay.hidden = false;
+    setTimeout(function(){ input.focus(); }, 100);
+  } else {
+    overlay.hidden = true;
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    if (input.value === KEY) {
+      error.classList.remove('show');
+      unlock();
+    } else {
+      error.classList.add('show');
+      input.select();
+    }
+  });
+
+  input.addEventListener('input', function(){ error.classList.remove('show'); });
+})();
+</script>
 </body>
 </html>
